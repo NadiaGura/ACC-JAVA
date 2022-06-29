@@ -1,38 +1,38 @@
 package Day3.Vehicle;
 
-public class Ferrari extends Car{
+public class Ferrari extends Car {
 
     String color;
+    int speed;
 
     //CONSTRUCTOR
-    public Ferrari(String name, int numberOfGears, boolean engine, boolean drive, String color){
-        super(name, numberOfGears, engine, drive);
+    public Ferrari(int year, int numberOfGears, boolean engine, String color, int speed) {
+        super(year, numberOfGears, engine);
         this.color = color;
+        this.speed = speed;
     }
 
+
+    //METHODS
+
     //METHOD TO CHANGE GEAR
+
     @Override
-    public void changeFerrariGears(){
+    public void changeGear() {
         super.changeGear();
-        System.out.println("Starting gear change!");
+        System.out.println("Starting gear change in Ferrari!");
     }
 
     //METHOD TO INCREASE/DECREASE SPEED
-    public void speed(boolean speed, boolean breakPedal) {
-        if ( this.speed ==true && this.breakPedal== false) {
-            System.out.println("You are pressing speed pedal - Ferrari will increase speed!");
-        } else if(this.breakPedal == true && this.speed ==false) {
-            System.out.println("You are pressing break pedal - Ferrari will decrease speed!");
-        }else{
-            System.out.println("ERROR!");
+
+    public void speed(boolean engine, boolean speedPedal, boolean breakPedal, int speed) {
+        if (engine && speedPedal) {
+            System.out.println("You are pressing speed pedal - Car will increase speed to " + speed + "!");
+        } else if (engine && breakPedal) {
+            System.out.println("You are pressing break pedal - Car will decrease speed!");
+        } else {
+            System.out.println("ERROR! Please  check your Car");
         }
     }
-
-
-    //MAIN
-    public static void main(String[]args){
-Ferrari newFerrari = new Ferrari("Model",4,true,true,"red");
-
-newFerrari.speed(true,false);
-    }
 }
+

@@ -1,18 +1,27 @@
 package Day3.Vehicle;
 
 //CHILD
-public abstract class Car extends Vehicle {
+public class Car extends Vehicle {
 
-    boolean engine;
-    boolean drive;
-    boolean breakPedal;
-    boolean speed;
+    private boolean engine;
+    //private boolean drive;
+    private boolean breakPedal;
+    private boolean speedPedal;
 
     //CONSTRUCTOR
-    public Car(String name, int numberOfGears, boolean engine, boolean drive) {
-        super(name, numberOfGears);
+    public Car(int year, int numberOfGears, boolean engine) {
+        super(year, numberOfGears);
         this.engine = engine;
-        this.drive = drive;
+        // this.drive = drive;
+    }
+
+    //METHODS
+
+    //OVERRIDE STEERING METHOD
+    @Override
+    public void steering() {
+        super.steering();
+        System.out.println("Steering activated on your Car!");
     }
 
     //METHOD TO HAVE ENGINE
@@ -25,31 +34,26 @@ public abstract class Car extends Vehicle {
     }
 
     //METHOD TO INCREASE/DECREASE SPEED
-    public void speed(boolean engine, boolean breakPedal, boolean speed) {
-        if (this.engine == true && this.speed ==true) {
-            System.out.println("You are pressing speed pedal - Car will increase speed!");
-        } else if(this.engine == true && this.breakPedal == true) {
-            System.out.println("You are pressing break pedal - Car will decrease speed!");
-            }else{
-            System.out.println("ERROR!");
-        }
-        }
+    public void speedIncrease(boolean engine, boolean speedPedal, boolean breakPedal) {
+//        this.engine = engine;
+//        this.speedPedal = speedPedal;
 
-    //OVERRIDE STEERING METHOD
-    @Override
-    public void steering() {
-        super.steering();
-        System.out.println("Steering activated!");
+        if (engine && speedPedal) {
+            System.out.println("You are pressing speed pedal - Car will increase speed!");
+        } else if (engine && breakPedal) {
+            System.out.println("You are pressing break pedal - Car will decrease speed!");
+        } else {
+            System.out.println("ERROR! Please  check your Car");
+        }
     }
+
 
     //OVERRIDE CHANGE GEAR METHOD
     @Override
     public void changeGear() {
         super.changeGear();
-        System.out.println("You can change gears!");
+        System.out.println("You can change gears on your Car!");
     }
-
-    //METHOD TO CHANGE GEAR
-    public abstract void changeFerrariGears();
 }
+
 

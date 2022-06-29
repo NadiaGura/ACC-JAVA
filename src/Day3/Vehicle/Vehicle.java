@@ -17,25 +17,25 @@ package Day3.Vehicle;
 //PARENT
 public class Vehicle {
 
-    String name;
-    int numberOfGears;
+    private int year;
+    private int numberOfGears;
 
     //CONSTRUCTOR
-    Vehicle(String name, int numberOfGears){
-        this.name = name;
+    Vehicle(int year, int numberOfGears) {
+        this.year = year;
         this.numberOfGears = numberOfGears;
     }
 
     //STEERING METHOD
-    public void steering(){
+    public void steering() {
         System.out.println("Steering is on!");
     }
 
     //CHANGE GEAR METHOD
     protected void changeGear() {
-        if(numberOfGears > 0){
+        if (numberOfGears > 0) {
             System.out.println("You can change gears.");
-        }else{
+        } else {
             System.out.println("ERROR! Vehicle don't have any gears.");
         }
     }
